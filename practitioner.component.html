@@ -1,0 +1,25 @@
+<div class="practitionerDashboard commonFlex">
+  <div class="practitionerLeft">
+    <div class="leftAlign">
+      <span class="p-float-label">
+        <input id="practitionername" [(ngModel)]="practitionersName" autocomplete="off" (input)="filterPractitioners()" pInputText/>
+        <label class="label" htmlFor="practitionername">Practitioner Name</label>
+      </span>
+      <span class="p-float-label">
+        <input pInputText id="practitionerdepartment" [(ngModel)]="practitionersDepartment" autocomplete="off" (input)="filterPractitioners()" />
+        <label class="label1" htmlFor="practitionerdepartment" >Practitioner Department</label>
+      </span>
+    </div>
+    <div class="practitionerName" *ngFor="let List of filteredPractitioners">
+      <div class="nameDept">
+        <div class="avatarIcon">
+          <p-avatar  [label]="getAvatarLabel(List)" styleClass="mr-2" size="large"  shape="circle"></p-avatar>
+          <p class="paraNameStyle"> {{ List.name }}</p>
+        </div>
+        <div class="department">
+          <p class="paraDepartmentStyle">{{ List.dept }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
